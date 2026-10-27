@@ -157,6 +157,10 @@ section>h2{font-size:1.25rem;font-weight:700;letter-spacing:-.01em}
 footer{text-align:center;font-size:.75rem;color:var(--muted-fg)}
 footer a{text-decoration:underline;text-underline-offset:3px}
 
+.lang{position:fixed;top:calc(16px + env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px));z-index:35;display:flex;padding:3px;gap:2px;border:1px solid var(--border);border-radius:999px;background:color-mix(in srgb,var(--card) 90%,transparent);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
+.lang button{all:unset;cursor:pointer;font:600 .75rem var(--font-mono);padding:.3rem .65rem;border-radius:999px;color:var(--muted-fg);transition:background .2s,color .2s}
+.lang button[aria-pressed="true"]{background:var(--primary);color:var(--primary-fg)}
+.lang button:focus-visible{outline:2px solid var(--muted-fg);outline-offset:2px}
 /* dock */
 .dock-wrap{position:fixed;left:0;right:0;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:30;pointer-events:none;display:flex;justify-content:center;padding-left:max(8px,env(safe-area-inset-left,0px));padding-right:max(8px,env(safe-area-inset-right,0px))}
 .dock{pointer-events:auto;height:3.5rem;padding:.5rem;display:flex;align-items:flex-end;gap:.5rem;border:1px solid var(--border);border-radius:999px;background:color-mix(in srgb,var(--card) 90%,transparent);-webkit-backdrop-filter:blur(40px);backdrop-filter:blur(40px);box-shadow:0 0 10px 3px color-mix(in srgb,var(--primary) 5%,transparent);max-width:100%}
@@ -188,6 +192,8 @@ footer a{text-decoration:underline;text-underline-offset:3px}
 </style>
 </head>
 <body>
+
+<div class="lang" role="group" aria-label="Langue"><button type="button" data-lang="fr" aria-pressed="true" lang="fr">FR</button><button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button></div>
 
 <div class="grid-top" aria-hidden="true"><canvas class="flicker"></canvas></div>
 
@@ -296,22 +302,23 @@ footer a{text-decoration:underline;text-underline-offset:3px}
   <section id="competences">
     <h2 class="fade">Compétences</h2>
     <div class="skills">
-      <span class="skill fade" style="--d:.28s"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="4" height="10" rx="1" fill="#f2c811"/><rect x="10" y="6" width="4" height="15" rx="1" fill="#e6ad10"/><rect x="17" y="2" width="4" height="19" rx="1" fill="#c99a0e"/></svg>Power BI</span>
-      <span class="skill fade" style="--d:.3s"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#0766d1"/><path d="M8 15.5c1 1 2.5 1.5 4 1.5s3-.8 3-2.3c0-3-6.5-1.7-6.5-5 0-1.4 1.4-2.2 3-2.2 1.3 0 2.4.4 3.3 1.1" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>SAS</span>
+      <span class="skill fade" style="--d:.28s"><img src="logos/powerbi.svg" alt="">Power BI</span>
+      <span class="skill fade" style="--d:.3s"><img src="logos/sas.svg" alt="">SAS</span>
       <span class="skill fade" style="--d:.32s"><svg viewBox="0 0 24 24" fill="none" stroke="#336791" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>SQL</span>
       <span class="skill fade" style="--d:.34s"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="18" rx="3" fill="#f2c811"/><text x="12" y="16" text-anchor="middle" font-size="8" font-weight="700" fill="#000" font-family="sans-serif">DAX</text></svg>DAX</span>
-      <span class="skill fade" style="--d:.36s"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="3" fill="#107c41"/><path d="m8 7 8 10M16 7 8 17" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>Excel</span>
-      <span class="skill fade" style="--d:.38s"><img src="logos/python.svg" alt="" class="">Python</span>
-      <span class="skill fade" style="--d:.4s"><img src="logos/csharp.svg" alt="" class="">C#</span>
-      <span class="skill fade" style="--d:.42s"><img src="logos/powershell.svg" alt="" class="">PowerShell</span>
-      <span class="skill fade" style="--d:.44s"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="9" height="9" fill="#f25022"/><rect x="13" y="2" width="9" height="9" fill="#7fba00"/><rect x="2" y="13" width="9" height="9" fill="#00a4ef"/><rect x="13" y="13" width="9" height="9" fill="#ffb900"/></svg>Microsoft 365</span>
+      <span class="skill fade" style="--d:.36s"><img src="logos/excel.svg" alt="">Excel</span>
+      <span class="skill fade" style="--d:.38s"><img src="logos/python.svg" alt="" >Python</span>
+      <span class="skill fade" style="--d:.4s"><img src="logos/csharp.svg" alt="" >C#</span>
+      <span class="skill fade" style="--d:.42s"><img src="logos/powershell.svg" alt="" >PowerShell</span>
+      <span class="skill fade" style="--d:.44s"><img src="logos/microsoft.svg" alt="">Microsoft 365</span>
+      <span class="skill fade" style="--d:.45s"><img src="logos/sharepoint.svg" alt="">SharePoint Online</span>
       <span class="skill fade" style="--d:.46s"><img src="logos/aws.svg" alt="" class="inv">AWS</span>
-      <span class="skill fade" style="--d:.46s"><img src="logos/azure.svg" alt="" class="">Azure</span>
-      <span class="skill fade" style="--d:.46s"><img src="logos/googlecloud.svg" alt="" class="">Google Cloud</span>
+      <span class="skill fade" style="--d:.46s"><img src="logos/azure.svg" alt="" >Azure</span>
+      <span class="skill fade" style="--d:.46s"><img src="logos/googlecloud.svg" alt="" >Google Cloud</span>
       <span class="skill fade" style="--d:.47s"><img src="logos/unity.svg" alt="" class="inv">Unity</span>
       <span class="skill fade" style="--d:.47s"><img src="logos/pandas.svg" alt="" class="inv">Pandas</span>
-      <span class="skill fade" style="--d:.47s"><img src="logos/matplotlib.svg" alt="" class="">Matplotlib</span>
-      <span class="skill fade" style="--d:.47s"><img src="logos/googlecolab.svg" alt="" class="">Google Colab</span>
+      <span class="skill fade" style="--d:.47s"><img src="logos/matplotlib.svg" alt="" >Matplotlib</span>
+      <span class="skill fade" style="--d:.47s"><img src="logos/googlecolab.svg" alt="" >Google Colab</span>
       <span class="skill fade" style="--d:.48s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>Données confidentielles</span>
       <span class="skill fade" style="--d:.5s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M9 14h6M9 18h4"/></svg>Documentation technique et légale</span>
       <span class="skill fade" style="--d:.52s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8M21 3v5h-5"/></svg>Méthodologie Agile</span>
@@ -328,7 +335,11 @@ footer a{text-decoration:underline;text-underline-offset:3px}
     <div class="projects">
       <article class="card fade" style="--d:.1s">
         <div class="media"><span class="badge">C# · Unity</span>
-<pre aria-hidden="true"><b>CloudStorage</b>.Connect(provider)
+<pre aria-hidden="true" data-en="&lt;b&gt;CloudStorage&lt;/b&gt;.Connect(provider)
+  ├─ &lt;b&gt;AWS&lt;/b&gt;          S3
+  ├─ &lt;b&gt;Azure&lt;/b&gt;        Blob Storage
+  └─ &lt;b&gt;Google Cloud&lt;/b&gt; Cloud Storage  ← me
+&lt;b&gt;CloudStorage&lt;/b&gt;.Upload(&quot;save.dat&quot;)"><b>CloudStorage</b>.Connect(provider)
   ├─ <b>AWS</b>          S3
   ├─ <b>Azure</b>        Blob Storage
   └─ <b>Google Cloud</b> Cloud Storage  ← moi
@@ -343,7 +354,12 @@ footer a{text-decoration:underline;text-underline-offset:3px}
       </article>
       <article class="card fade" style="--d:.14s">
         <div class="media"><span class="badge">Python · IA</span>
-<pre aria-hidden="true"><b>corpus</b> = charger_textes()
+<pre aria-hidden="true" data-en="&lt;b&gt;corpus&lt;/b&gt; = load_texts()
+&lt;b&gt;tokens&lt;/b&gt; = preprocess(corpus)
+&lt;b&gt;segments&lt;/b&gt; = segment(tokens)
+&lt;b&gt;clusters&lt;/b&gt; = clustering(segments)
+&lt;b&gt;rules&lt;/b&gt; = association_rules(clusters)
+export_excel(rules)"><b>corpus</b> = charger_textes()
 <b>tokens</b> = pretraiter(corpus)
 <b>segments</b> = segmenter(tokens)
 <b>clusters</b> = clustering(segments)
@@ -359,7 +375,12 @@ exporter_excel(regles)</pre>
       </article>
       <article class="card fade" style="--d:.18s">
         <div class="media"><span class="badge">SAS · SQL</span>
-<pre aria-hidden="true"><b>PROC SQL</b>;
+<pre aria-hidden="true" data-en="&lt;b&gt;PROC SQL&lt;/b&gt;;
+  &lt;b&gt;CREATE TABLE&lt;/b&gt; case_file &lt;b&gt;AS&lt;/b&gt;
+  &lt;b&gt;SELECT&lt;/b&gt; ... &lt;b&gt;FROM&lt;/b&gt; internal_systems
+  &lt;b&gt;WHERE&lt;/b&gt; risk = 'high';
+&lt;b&gt;QUIT&lt;/b&gt;;
+&lt;span&gt;/* confidential content */&lt;/span&gt;"><b>PROC SQL</b>;
   <b>CREATE TABLE</b> dossier <b>AS</b>
   <b>SELECT</b> ... <b>FROM</b> systemes_internes
   <b>WHERE</b> risque = 'élevé';
@@ -375,7 +396,12 @@ exporter_excel(regles)</pre>
       </article>
       <article class="card fade" style="--d:.22s">
         <div class="media"><span class="badge">Microsoft 365</span>
-<pre aria-hidden="true"><b>Tenant</b> Cabinet du ministère
+<pre aria-hidden="true" data-en="&lt;b&gt;Tenant&lt;/b&gt; Minister's Office
+  ├─ &lt;b&gt;Accounts&lt;/b&gt; and licenses
+  ├─ &lt;b&gt;SharePoint Online&lt;/b&gt;
+  │    ├─ libraries
+  │    └─ lists
+  └─ &lt;b&gt;User&lt;/b&gt; support"><b>Tenant</b> Cabinet du ministère
   ├─ <b>Comptes</b> et licences
   ├─ <b>SharePoint Online</b>
   │    ├─ bibliothèques
@@ -423,7 +449,7 @@ exporter_excel(regles)</pre>
     </div>
   </section>
 
-  <footer>© 2026 Emile Wamba · Design inspiré de <a href="https://github.com/dillionverma/portfolio" target="_blank" rel="noopener noreferrer">dillionverma/portfolio</a> (MIT) · Logos <a href="https://github.com/devicons/devicon" target="_blank" rel="noopener noreferrer">Devicon</a></footer>
+  <footer>© 2026 Emile Wamba · Design inspiré de <a href="https://github.com/dillionverma/portfolio" target="_blank" rel="noopener noreferrer">dillionverma/portfolio</a> (MIT) · Logos <a href="https://github.com/devicons/devicon" target="_blank" rel="noopener noreferrer">Devicon</a> et <a href="https://iconify.design" target="_blank" rel="noopener noreferrer">Iconify</a></footer>
 </main>
 
 <nav class="dock-wrap" aria-label="Navigation">
@@ -493,7 +519,7 @@ exporter_excel(regles)</pre>
   var note=document.getElementById('copy-note');
   ['copy-email','copy-phone'].forEach(function(id){var b=document.getElementById(id);
     b.addEventListener('click',function(){var v=b.getAttribute('data-copy');
-      try{navigator.clipboard.writeText(v).then(function(){note.textContent='Copié : '+v;},function(){note.textContent=v;});}catch(e){note.textContent=v;}});});
+      try{navigator.clipboard.writeText(v).then(function(){note.textContent=(window.__lang==='en'?'Copied: ':'Copié : ')+v;},function(){note.textContent=v;});}catch(e){note.textContent=v;}});});
 
   // Apparition douce au chargement (BlurFade) ; le reste de la page est visible d'emblée
   if(!reduce){
@@ -501,6 +527,26 @@ exporter_excel(regles)</pre>
     document.querySelectorAll('.fade').forEach(function(el){var r=el.getBoundingClientRect();
       if(r.top<innerHeight){el.classList.add('pre');requestAnimationFrame(function(){requestAnimationFrame(function(){el.classList.remove('pre');});});}});
   }
+
+  // Langue FR / EN : le français est dans la page, l'anglais dans ce dictionnaire
+  var EN={"Salut, moi c'est Emile 👋": "Hi, I'm Emile 👋", "Analyste de données et programmeur. J'extrais, je vérifie et je fais parler des données sensibles, et je construis les outils qui vont avec.": "Data analyst and programmer. I extract, verify and make sense of sensitive data, and I build the tools that go with it.", "Ouvert aux opportunités": "Open to opportunities", "À propos": "About", "Analyste de données avec une solide expérience en analyse quantitative et qualitative. Je travaille avec de grands volumes de données complexes et des informations confidentielles (NAS, cartes bancaires) avec un haut niveau de discrétion.": "Data analyst with solid experience in quantitative and qualitative analysis. I work with large volumes of complex data and confidential information (social insurance numbers, credit cards) with a high level of discretion.", "Aujourd'hui, je suis": "Today, I am a", "consultant en extraction de données chez Equifax": "data extraction consultant at Equifax", ", au département d'enquête. Avant ça, j'ai": ", in the investigations department. Before that, I", "développé un plugin Unity multicloud et un pipeline d'analyse de texte": "built a multi-cloud Unity plugin and a text analysis pipeline", "pendant mes stages à l'UQTR, et": "during my internships at UQTR, and", "administré Microsoft 365": "administered Microsoft 365", "au Cabinet du ministère de la Santé à Kinshasa.": "at the Office of the Minister of Health in Kinshasa.", "Expérience": "Experience", "Consultant en extraction de données": "Data Extraction Consultant", "06/2025 – en cours": "06/2025 – present", "Montréal (hybride), département d'enquête, dossiers à haut risque.": "Montréal (hybrid), investigations department, high-risk cases.", "Extraction de données dans les systèmes internes, y compris les bases de données": "Data extraction from internal systems, including databases", "Soutien aux activités d'enquête grâce à une analyse rigoureuse des données": "Support for investigations through rigorous data analysis", "Rédaction d'affidavits et de documentation légale": "Drafting affidavits and legal documentation", "Gestion de données confidentielles et sensibles, rigueur et conformité des processus, contrôle qualité": "Handling confidential and sensitive data, process rigor and compliance, quality control", "Collaboration avec différents intervenants pour clarifier les besoins d'analyse": "Working with stakeholders to clarify analysis needs", "Stagiaire en développement logiciel": "Software Development Intern", "Hiver 2025": "Winter 2025", "Participation à la conception et au développement d'un plugin Unity intégrant de manière uniforme AWS, Microsoft Azure et Google Cloud": "Helped design and develop a Unity plugin that integrates AWS, Microsoft Azure and Google Cloud in a uniform way", "Développement des interfaces de connexion et de la gestion des fichiers sur Google Cloud": "Built the connection interfaces and file management on Google Cloud", "Stagiaire en analyse de données": "Data Analysis Intern", "Été 2024": "Summer 2024", "Analyse d'un corpus textuel au moyen d'un pipeline Python structuré sur Google Colab": "Analyzed a text corpus with a structured Python pipeline on Google Colab", "Prétraitement, segmentation, clustering et extraction de règles d'association": "Preprocessing, segmentation, clustering and association rule mining", "Export des résultats vers Excel et visualisation des données": "Exported results to Excel and visualized the data", "IA": "AI", "Cabinet du ministère de la Santé": "Office of the Minister of Health", "Administrateur Microsoft 365": "Microsoft 365 Administrator", "1 an et 7 mois": "1 year 7 months", "Kinshasa (RDC), emploi permanent.": "Kinshasa (DRC), permanent position.", "Gestion des comptes et des licences utilisateurs": "Managed user accounts and licenses", "Configuration et maintien de SharePoint Online, gestion des bibliothèques et des listes": "Configured and maintained SharePoint Online, including libraries and lists", "Soutien technique aux utilisateurs": "Technical support for users", "Formation": "Education", "Baccalauréat en développement de logiciels": "Bachelor's degree in Software Development", "BAC+3 en techniques de maintenance informatique": "3-year degree in Computer Maintenance", "Compétences": "Skills", "Données confidentielles": "Confidential data", "Documentation technique et légale": "Technical and legal documentation", "Méthodologie Agile": "Agile methodology", "Travail en équipe": "Teamwork", "Mes projets": "My Projects", "Ce que j'ai construit": "What I've built", "Du plugin multicloud au pipeline d'IA, voici les projets réalisés pendant mes stages et mon travail.": "From a multi-cloud plugin to an AI pipeline, here are the projects from my internships and my work.", "Python · IA": "Python · AI", "Plugin Unity multicloud": "Multi-cloud Unity plugin", "Hiver 2025 · UQTR": "Winter 2025 · UQTR", "Un plugin Unity qui intègre de manière uniforme les trois principaux fournisseurs infonuagiques. J'ai développé les interfaces de connexion et la gestion des fichiers sur Google Cloud.": "A Unity plugin that integrates the three major cloud providers in a uniform way. I built the connection interfaces and file management on Google Cloud.", "Pipeline d'analyse textuelle": "Text analysis pipeline", "Été 2024 · UQTR": "Summer 2024 · UQTR", "Un pipeline Python structuré sur Google Colab : prétraitement, segmentation, clustering et extraction de règles d'association, avec export vers Excel et visualisation des résultats.": "A structured Python pipeline on Google Colab: preprocessing, segmentation, clustering and association rule mining, with export to Excel and visualization of the results.", "Extraction pour enquêtes à haut risque": "Data extraction for high-risk investigations", "Depuis 06/2025 · Equifax": "Since 06/2025 · Equifax", "Extraction et analyse de données dans les systèmes internes pour soutenir les enquêtes et la rédaction d'affidavits, dans un cadre strict de confidentialité et de contrôle qualité.": "Extracting and analyzing data from internal systems to support investigations and affidavits, under strict confidentiality and quality control.", "Administration Microsoft 365": "Microsoft 365 administration", "1 an et 7 mois · Kinshasa": "1 year 7 months · Kinshasa", "Gestion des comptes et des licences, configuration et maintien de SharePoint Online, et soutien technique aux utilisateurs du Cabinet du ministère de la Santé.": "Managed accounts and licenses, configured and maintained SharePoint Online, and provided technical support to users at the Office of the Minister of Health.", "Parcours": "Journey", "De Kinshasa à Montréal": "From Kinshasa to Montréal", "De la maintenance informatique au développement logiciel, puis à l'analyse de données pour les enquêtes.": "From computer maintenance to software development, then to data analysis for investigations.", "BAC+3 en maintenance informatique": "3-year degree in Computer Maintenance", "ISIPA, Kinshasa (RDC)": "ISIPA, Kinshasa (DRC)", "Début du baccalauréat en développement de logiciels": "Started my Bachelor's in Software Development", "Été 2024 · Hiver 2025": "Summer 2024 · Winter 2025", "Deux stages : analyse de données, puis développement logiciel": "Two internships: data analysis, then software development", "Département d'enquête, dossiers à haut risque.": "Investigations department, high-risk cases.", "BAC": "BSc", "Fin du baccalauréat": "Bachelor's degree completed", "Parlons-en": "Let's talk", "Un poste en analyse de données, en développement ou en sécurité de l'information ? Écrivez-moi par courriel ou": "A role in data analysis, development or information security? Email me or", "envoyez-moi un message sur LinkedIn": "send me a message on LinkedIn", "Cliquez pour copier.": "Click to copy.", "© 2026 Emile Wamba · Design inspiré de": "© 2026 Emile Wamba · Design inspired by", "Accueil": "Home", "Mon CV": "Resume (French)", "Certificats": "Certificates", "Thème": "Theme", "@Présentation": "Introduction", "@Navigation": "Navigation", "@Changer de thème": "Toggle theme", "@Langue": "Language", "@Portrait d'Emile Wamba": "Portrait of Emile Wamba", "Copié : ": "Copied: ", "et": "and"};
+  var texts=[],attrs=[],pres=[].slice.call(document.querySelectorAll('pre[data-en]'));
+  (function(){var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){return n.parentElement.closest('script,style,pre')?2:1;}}),n;
+    while((n=w.nextNode())){var k=n.nodeValue.trim();if(EN[k])texts.push({n:n,fr:n.nodeValue,en:n.nodeValue.replace(k,EN[k])});}
+    document.querySelectorAll('[aria-label],[alt]').forEach(function(e){['aria-label','alt'].forEach(function(a){var v=e.getAttribute(a);if(v&&EN['@'+v])attrs.push({e:e,a:a,fr:v,en:EN['@'+v]});});});
+    pres.forEach(function(p){p._fr=p.innerHTML;});})();
+  window.__lang='fr';
+  function setLang(l){window.__lang=l;root.lang=l;
+    texts.forEach(function(t){t.n.nodeValue=t[l];});attrs.forEach(function(t){t.e.setAttribute(t.a,t[l]);});
+    pres.forEach(function(p){p.innerHTML=l==='en'?p.getAttribute('data-en'):p._fr;});
+    document.title=l==='en'?'Emile Wamba · Portfolio':'Emile Wamba';
+    document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-lang')===l?'true':'false');});
+    try{localStorage.setItem('ew-lang',l);}catch(e){}}
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'));});});
+  var start=null;try{start=localStorage.getItem('ew-lang');}catch(e){}
+  if(location.hash==='#en')start='en';else if(location.hash==='#fr')start='fr';
+  if(!start)start=/^fr/i.test(navigator.language||'fr')?'fr':'en';
+  if(start==='en')setLang('en');
 })();
 </script>
 </body>
